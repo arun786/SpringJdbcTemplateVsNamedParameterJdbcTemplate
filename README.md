@@ -44,3 +44,20 @@
             return new JdbcTemplate(mysqlDataSource);
         }
     }
+
+
+### dao layer 
+
+    using jdbcTemplate, the amount of time taken to retrieve count of age and streeid is arounf 2 ms. Total number of records are 500
+    
+        @Autowired
+        @Qualifier("mysqlJdbcTemplate")
+        private JdbcTemplate jdbcTemplate;
+    
+        @RsTimeTraker
+        @Override
+        public Integer getCountOfList(Integer streetId, Integer age) {
+            Integer count = jdbcTemplate.queryForObject("select count(*) from student where streetid = ? and age = ?", new Object[]{streetId, age}, Integer.class);
+            logger.info("Count {}", count);
+            return count;
+        }
