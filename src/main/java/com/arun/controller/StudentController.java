@@ -27,4 +27,11 @@ public class StudentController {
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
+    @GetMapping("/students/v1/student/name/{streetId}/age/{age}")
+    public ResponseEntity<List<Student>> getStudentsByNamed(@PathVariable(value = "streetId") Integer streetId,
+                                                     @PathVariable(value = "age") Integer age) {
+        List<Student> students = studentService.getStudentsNamed(streetId, age);
+        return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
 }

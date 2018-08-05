@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface StudentService {
     List<Student> getStudents(Integer streetId, Integer age);
+    List<Student> getStudentsNamed(Integer streetId, Integer age);
 }

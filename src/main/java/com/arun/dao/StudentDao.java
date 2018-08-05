@@ -9,5 +9,7 @@ import java.util.List;
  */
 public interface StudentDao {
     Integer getCountOfList(Integer streetId, Integer age);
-    List<Student> getListOfStudent(Integer streetId);
+    Integer getCountOfListWithNamed(Integer streetId, Integer age);
+    List<Student> getListOfStudent(Integer streetId, Integer age);
+    List<Student> getListOfStudentWithNamed(Integer streetId, Integer age);
 }
