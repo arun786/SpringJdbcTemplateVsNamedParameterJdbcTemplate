@@ -48,7 +48,7 @@
 
 ### dao layer 
 
-    using jdbcTemplate, the amount of time taken to retrieve count of age and streeid is arounf 2 ms. Total number of records are 500
+    using jdbcTemplate, the amount of time taken to retrieve count of age and streeid is arounf 2 ms. Total number of records are 500, we get the same response for namedparameterjdbctemplate
     
         package com.arun.dao;
         
