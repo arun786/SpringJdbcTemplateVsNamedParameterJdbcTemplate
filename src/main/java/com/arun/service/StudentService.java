@@ -1,5 +1,6 @@
 package com.arun.service;
 
+import com.arun.model.Account;
 import com.arun.model.Student;
 
 import java.util.List;
@@ -10,4 +11,5 @@ import java.util.List;
 public interface StudentService {
     List<Student> getStudents(Integer streetId, Integer age);
     List<Student> getStudentsNamed(Integer streetId, Integer age);
+    List<Account> getAccounts(Integer id);
 }

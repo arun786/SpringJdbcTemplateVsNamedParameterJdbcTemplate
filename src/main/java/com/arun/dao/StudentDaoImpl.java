@@ -1,5 +1,7 @@
 package com.arun.dao;
 
+import com.arun.mapper.AccountRowMapper;
+import com.arun.model.Account;
 import com.arun.model.Student;
 import com.arun.rc.config.annotation.RsTimeTraker;
 import org.slf4j.Logger;
@@ -74,5 +76,11 @@ public class StudentDaoImpl implements StudentDao {
             student.setAge(rs.getString("age"));
             return student;
         });
+    }
+
+    @Override
+    public List<Account> getAccounts(Integer id) {
+        final List<Account> accounts = namedParameterJdbcTemplate.query("select * from account", new AccountRowMapper());
+        return accounts;
     }
 }

@@ -1,5 +1,6 @@
 package com.arun.dao;
 
+import com.arun.model.Account;
 import com.arun.model.Student;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface StudentDao {
     Integer getCountOfListWithNamed(Integer streetId, Integer age);
     List<Student> getListOfStudent(Integer streetId, Integer age);
     List<Student> getListOfStudentWithNamed(Integer streetId, Integer age);
+    List<Account> getAccounts(Integer id);
 }
