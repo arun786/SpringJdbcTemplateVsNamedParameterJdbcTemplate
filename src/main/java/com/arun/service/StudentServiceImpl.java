@@ -54,11 +54,11 @@ public class StudentServiceImpl implements StudentService {
             List<Site> sites = new ArrayList<>();
             siteMap.entrySet().stream().forEach(s -> {
                 Site site = new Site();
-                final List<Account> value1 = s.getValue();
+                final List<Account> listOfSites = s.getValue();
                 site.setId(s.getKey());
                 site.setName(s.getValue().get(0).getSite().getName());
                 List<Container> containers = new ArrayList<Container>();
-                value1.stream().forEach(c -> {
+                listOfSites.stream().forEach(c -> {
                     Container container = new Container();
                     container.setId(c.getContainer().getId());
                     container.setName(c.getContainer().getName());
