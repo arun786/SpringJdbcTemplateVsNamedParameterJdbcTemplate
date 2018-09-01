@@ -1,5 +1,6 @@
 package com.arun.dao;
 
+import com.arun.mapper.AccountResultExtractor;
 import com.arun.mapper.AccountRowMapper;
 import com.arun.model.Account;
 import com.arun.model.Student;
@@ -80,7 +81,13 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public List<Account> getAccounts(Integer id) {
-        final List<Account> accounts = namedParameterJdbcTemplate.query("select * from account", new AccountRowMapper());
-        return accounts;
+        return namedParameterJdbcTemplate.query("select * from account", new AccountRowMapper());
+    }
+
+    @Override
+    public List<Account> getAccountsWithExtractor(Integer id) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id", id);
+        return namedParameterJdbcTemplate.query("select * from account", mapSqlParameterSource, new AccountResultExtractor());
     }
 }

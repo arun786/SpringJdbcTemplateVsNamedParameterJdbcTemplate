@@ -72,4 +72,9 @@ public class StudentServiceImpl implements StudentService {
         });
         return finalAccounts;
     }
+
+    @Override
+    public List<Account> getAccountsWithExtractor(Integer id) {
+        return studentDao.getAccountsWithExtractor(id);
+    }
 }

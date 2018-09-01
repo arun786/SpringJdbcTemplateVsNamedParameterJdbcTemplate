@@ -20,8 +20,15 @@ public class AccountController {
     private StudentService studentService;
 
     @GetMapping("accounts/v1/account/{id}")
-    public ResponseEntity<List<Account>> getAccount(@PathVariable Integer id){
+    public ResponseEntity<List<Account>> getAccount(@PathVariable Integer id) {
         final List<Account> accounts = studentService.getAccounts(id);
+        ResponseEntity<List<Account>> responseEntity = new ResponseEntity<>(accounts, HttpStatus.OK);
+        return responseEntity;
+    }
+
+    @GetMapping("accounts/v1/account/extractor/{id}")
+    public ResponseEntity<List<Account>> getAccountUsingExtractor(@PathVariable Integer id) {
+        final List<Account> accounts = studentService.getAccountsWithExtractor(id);
         ResponseEntity<List<Account>> responseEntity = new ResponseEntity<>(accounts, HttpStatus.OK);
         return responseEntity;
     }
